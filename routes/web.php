@@ -20,3 +20,6 @@ Route::get('/All-Jobs', function () {
 Route::get('/Post-Jobs', function () {
     return view('jobPost');
 });
+Route::get('/Signup', function () {
+    return view('signupEmployee');
+});

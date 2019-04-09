@@ -235,9 +235,10 @@
                                     <h2 class="pt-7 pb-7 pl-40 pr-40">Login</h2>
                                 </div>
                                 <form method="post" action="#">
+                                    @csrf
                                     <div class="form-box">
-                                        <input type="text" name="username" placeholder="User Name" class="mb-14">
-                                        <input type="password" name="pass" placeholder="Password">
+                                        <input type="text" name="userName" placeholder="User Name" class="mb-14">
+                                        <input type="password" name="password" placeholder="Password">
                                     </div>
                                     <div class="fix ptb-30">
                                         <span class="pull-right"><a href="#">Forget Password?</a></span>
@@ -269,6 +270,7 @@
                                     <h2 class="pt-7 pb-7 pl-40 pr-40">Sign Up</h2>
                                 </div>
                                 <form method="post" action="#">
+                                    @csrf
                                     <div class="form-box">
                                         <input type="text" name="fullname" placeholder="Full Name" class="mb-14">
                                         <input type="text" name="username" placeholder="User Name" class="mb-14">
