@@ -104,6 +104,9 @@
                                     <div class="login-btn pt-36">
                                         <a class="modal-view button" href="#" data-toggle="modal" data-target="#productModal">Login</a>
                                     </div>
+                                      <div class="login-btn pt-36">
+                                        <a class="modal-view button" href="/Signup" data-toggle="modal">SignUp</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
