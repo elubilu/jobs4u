@@ -28,4 +28,5 @@ class JobsController extends Controller
      	return view('signupEmployee');
 
     }
+     
 }

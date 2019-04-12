@@ -27,7 +27,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
-                                <form action="#">
+                                <form action="#" enctype="multipart/form-data" method="Post">
                                 	@csrf
                                     <div class="single-job-content">
                                         <div class="title uppercase pt-50 pb-38"><span class="lg">Profile</span></div>
