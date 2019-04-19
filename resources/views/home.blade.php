@@ -100,7 +100,7 @@
                                         </div>
                                         <div class="time-payment col-2 pl-60 text-center pt-22">
                                             <span class="block mb-6">€ 200.00</span>
-                                            <a href="#" class="button button-red">Full Time</a>
+                                            <a href="Job-Details/1" class="button button-red">Full Time</a>
                                         </div>
                                     </div>
                                     <div class="single-job-post fix">
@@ -119,7 +119,7 @@
                                         </div>
                                         <div class="time-payment col-2 pl-60 text-center pt-22">
                                             <span class="block mb-6">€ 450.00</span>
-                                            <a href="#" class="button button-red">Full Time</a>
+                                            <a href="Job-Details/2" class="button button-red">Full Time</a>
                                         </div>
                                     </div>
                                     <div class="single-job-post fix">
@@ -138,7 +138,7 @@
                                         </div>
                                         <div class="time-payment col-2 pl-60 text-center pt-22">
                                             <span class="block mb-6">€ 500.00</span>
-                                            <a href="#" class="button button-dark-blue">Internship</a>
+                                            <a href="Job-Details/10" class="button button-dark-blue">Internship</a>
                                         </div>
                                     </div>
                                     <div class="single-job-post fix">
@@ -157,7 +157,7 @@
                                         </div>
                                         <div class="time-payment col-2 pl-60 text-center pt-22">
                                             <span class="block mb-6">€ 500.00</span>
-                                            <a href="#" class="button button-red">Full Time</a>
+                                            <a href="Job-Details/11" class="button button-red">Full Time</a>
                                         </div>
                                     </div>
                                     <div class="single-job-post fix">
@@ -176,7 +176,7 @@
                                         </div>
                                         <div class="time-payment col-2 pl-60 text-center pt-22">
                                             <span class="block mb-6">€ 500.00</span>
-                                            <a href="#" class="button">Part Time</a>
+                                            <a href="Job-Details/12" class="button">Part Time</a>
                                         </div>
                                     </div>
                                 </div>
@@ -220,7 +220,7 @@
                                         </div>
                                         <div class="time-payment col-2 pl-60 text-center pt-22">
                                             <span class="block mb-6">€ 200.00</span>
-                                            <a href="#" class="button button-red">Full Time</a>
+                                            <a href="Job-Details/13" class="button button-red">Full Time</a>
                                         </div>
                                     </div>
                                     <div class="single-job-post fix">
@@ -239,7 +239,7 @@
                                         </div>
                                         <div class="time-payment col-2 pl-60 text-center pt-22">
                                             <span class="block mb-6">€ 450.00</span>
-                                            <a href="#" class="button button-red">Full Time</a>
+                                            <a href="Job-Details/14" class="button button-red">Full Time</a>
                                         </div>
                                     </div>
                                     <div class="single-job-post fix">
@@ -258,7 +258,7 @@
                                         </div>
                                         <div class="time-payment col-2 pl-60 text-center pt-22">
                                             <span class="block mb-6">€ 500.00</span>
-                                            <a href="#" class="button">Part Time</a>
+                                            <a href="Job-Details/15" class="button">Part Time</a>
                                         </div>
                                     </div>
                                 </div>

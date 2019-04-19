@@ -39,13 +39,13 @@
                                         <div class="title uppercase pt-70 pb-38"><span>Job Details</span></div>
                                         <div class="single-job-form">
                                             <div class="single-info pb-14">
-                                                <label for="title" class="uppercase pull-left m-0">Job Title</label>
+                                                <label for="title" class="uppercase pull-left m-0">Job Title <span>*</span></label>
                                                 <div class="form-box fix">
                                                     <input type="text" id="title" name="title" placeholder="Enter your job title">
                                                 </div>
                                             </div>
                                              <div class="single-info mb-14 fix">
-                                                <label class="uppercase pull-left m-0">Description</label>
+                                                <label class="uppercase pull-left m-0"> Description <span>*</span></label>
                                                 <div class="text-style fix pt-5 pb-5 pl-15 fix">
                                                     <span class="mr-15"><i class="zmdi zmdi-format-bold"></i></span>
                                                     <span class="mr-15"><i class="zmdi zmdi-format-italic"></i></span>
@@ -58,7 +58,7 @@
                                                 </div>
                                             </div>
                                             <div class="single-info pb-14">
-                                                <label for="location" class="uppercase pull-left m-0">Job location</label>
+                                                <label for="location" class="uppercase pull-left m-0">Job location <span>*</span></label>
                                                 <div class="form-box fix">
                                                     <input type="text" id="location" name="location" placeholder="Enter your job location">
                                                 </div>
@@ -67,52 +67,52 @@
                                                 <div style="width: 100%"><iframe width="100%" height="200" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Sylhet+(Jobs4u)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/map-my-route/"></a></iframe></div><br/>
                                             </div>
                                             <div class="single-info pb-14">
-                                                <label for="type" class="uppercase pull-left m-0">Job type</label>
+                                                <label for="type" class="uppercase pull-left m-0">Job type <span>*</span></label>
                                                 <div class="form-box fix">
-                                                    <div class="select large">
-                                                        <select name="jobType">
-                                                            <option>Volunteer</option>
-                                                            <option>Internship</option>
-                                                            <option>Part Time</option>
-                                                            <option>Full Time</option>
-                                                        </select>
-                                                    </div>
+                                                 
+                                                    <select name="jobType" required="">
+                                                        <option>Volunteer</option>
+                                                        <option>Internship</option>
+                                                        <option>Part Time</option>
+                                                        <option>Full Time</option>
+                                                    </select>
+                                                   
                                                 </div>
                                             </div>
                                             <div class="single-info pb-14">
-                                                <label for="category" class="uppercase pull-left m-0">Job Category </label>
+                                                <label for="category" class="uppercase pull-left m-0">Job Category <span>*</span> </label>
                                                 <div class="form-box fix">
                                                     <input type="text" id="category" name="category" placeholder="Enter your job category">
                                                 </div>
                                             </div>
                                             
                                             <div class="single-info pb-14">
-                                                <label for="category" class="uppercase pull-left m-0">Salary </label>
+                                                <label for="category" class="uppercase pull-left m-0">Salary <span>*</span></label>
                                                 <div class="form-box fix">
                                                     <input type="text" id="category" name="salary" placeholder="Enter Salary">
                                                 </div>
                                             </div>
                                              <div class="single-info pb-14">
-                                                <label for="vacancy" class="uppercase pull-left m-0">No of Position</label>
+                                                <label for="vacancy" class="uppercase pull-left m-0">No of Position <span>*</span></label>
                                                 <div class="form-box fix">
                                                     <input type="text" id="vacancy" name="vacancy" placeholder="Enter No of Position">
                                                 </div>
                                             </div>
                                              <div class="single-info pb-14">
-                                                <label for="qualification" class="uppercase pull-left m-0"> Education </label>
+                                                <label for="qualification" class="uppercase pull-left m-0"> Education <span>*</span></label>
                                                 <div class="form-box fix">
                                                     <input type="text" id="qualification" name="qualification" placeholder="Educational Qualification">
                                                 </div>
                                             </div>
                                              <div class="single-info pb-14">
-                                                <label for="experience" class="uppercase pull-left m-0">Experience </label>
+                                                <label for="experience" class="uppercase pull-left m-0">Experience <span>*</span> </label>
                                                 <div class="form-box fix">
                                                     <input type="text" id="experience" name="experience" placeholder="Enter Experience">
                                                 </div>
                                             </div>
                                              
                                             <div class="single-info">
-                                                <label for="date" class="uppercase pull-left m-0">Closing date</label>
+                                                <label for="date" class="uppercase pull-left m-0">Closing date <span>*</span></label>
                                                 <div class="form-box fix">
                                                     <input type="date" id="date" name="deadline">
                                                 </div>

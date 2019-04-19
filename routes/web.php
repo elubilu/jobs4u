@@ -24,8 +24,14 @@
 //     return view('signupEmployee');
 // });
 Route::get('/', 'JobsController@home');
+Route::get('/Profile', 'UserController@profile');
+Route::get('/Education', 'UserController@addEducation');
+Route::get('/Home', 'UserController@home');
 Route::get('/All-Jobs', 'JobsController@allJobs');
 Route::get('/Post-Jobs', 'JobsController@jobPost');
+Route::get('/Job-Details/{id}', 'JobsController@jobDetails');
 Route::get('/Signup', 'JobsController@signup');
+Route::post('/User-Registration', 'UserController@storeUser');
+Route::post('/Login', 'UserController@login');
 // Route::get('HR/EmployeeInfo/{id}', 'HRController@employeeView');
 // Route::post('HR/storeEmployee', 'HRController@store');

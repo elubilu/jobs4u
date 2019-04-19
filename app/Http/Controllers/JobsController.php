@@ -28,5 +28,8 @@ class JobsController extends Controller
      	return view('signupEmployee');
 
     }
-     
+    public function jobDetails($id)
+    {
+    	return view('jobDetails');
+    }
 }

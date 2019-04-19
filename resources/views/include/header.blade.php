@@ -237,11 +237,11 @@
                                 <div class="area-title text-center mb-43">
                                     <h2 class="pt-7 pb-7 pl-40 pr-40">Login</h2>
                                 </div>
-                                <form method="post" action="#">
+                                <form method="post" action="/Login">
                                     @csrf
                                     <div class="form-box">
-                                        <input type="text" name="userName" placeholder="User Name" class="mb-14">
-                                        <input type="password" name="password" placeholder="Password">
+                                        <input type="text" name="userName" placeholder="User Name" class="mb-14" required="">
+                                        <input type="password" name="password" placeholder="Password" required="">
                                     </div>
                                     <div class="fix ptb-30">
                                         <span class="pull-right"><a href="#">Forget Password?</a></span>

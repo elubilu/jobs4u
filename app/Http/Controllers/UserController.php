@@ -20,8 +20,9 @@ class UserController extends Controller
     	$data['bio'] = $request->input('bio');
     	$data['userName'] = $request->input('userName');
         $data['email']  = $request->input('email');
-        $data['password']  = $request->input('password');
-        $pass  = $request->input('conPassword');
+        $data['city']  = $request->input('city');
+        $data['password']  =md5($request->input('password'));
+        $pass  = md5($request->input('conPassword'));
     	$image  = $request->file('image');
         $profileImageSaveAsName = time() . "-profile." . 
         $image->getClientOriginalExtension();
@@ -37,14 +38,70 @@ class UserController extends Controller
         $date=$year.'-'.$month.'-'.$day;
         $time = strtotime($date);
         $data['dob'] = date('Y-m-d',$time);
-     	if(UserModel::store_user($data))
-     	{
-     		return view('home');
-     	}
-     	else 
-     	{
-     		return redirect("/Signup");
-     	}
+        if($pass==$data['password']){
+	     	if(UserModel::store_user($data))
+	     	{
+	     		// $data['password']=md5($pass);
+		        $success = $image->move($upload_path, $profileImageSaveAsName);
+		        \Session::flash('message', 'You are successfully Signup. Please check your email to verify.');  
+	        	\Session::flash('alert-type', 'success');
+	     		return redirect("/");
+	     	}
+	     	else 
+	     	{
+	     		return redirect("/Signup");
+	     	}
+	     }
+	     else{
+			\Session::flash('message', "Password didn't match!");  
+	        \Session::flash('alert-type', 'error');
+	     		return redirect("/Signup");
+
+	     }
     }
+
+    public function login(Request $request){
+    	$data['userName'] = $request->input('userName');
+        $data['password']  = md5($request->input('password'));
+        // print_r(UserModel::login_user($data)); exit();
+        if(UserModel::login_user($data))
+        {
+
+	        \Session::flash('message', 'You are successfully Logged in.');  
+	        \Session::flash('alert-type', 'success');  
+	        session()->put('userName', $data['userName']);
+	        
+
+     		return redirect("/Home");
+
+        }
+        else {
+        	 \Session::flash('message', 'Wrong Username or Password! Please try again!');  
+	        \Session::flash('alert-type', 'error');
+     		return redirect("/");
+
+        }
+    }
+    public function home()
+    {
+    	if(session()->get('userName')){
+	    	$details=UserModel::get_details_by_userName(session()->get('userName'));
+	    	session()->put('fullName', $data['fullName']);
+	    	// print_r($details); exit();
+	    	return view('user.home',['details'=>$details]);
+	    }
+	    else redirect("/");
+    }
+    public function profile()
+    {
+    	$details=UserModel::get_details_by_userName(session()->get('userName'));
+    	return view('user.profile',['details'=>$details]);
+    }
+     public function addEducation()
+    {
+    	return view('user.addEducation');
+    }
+
+
 
 }

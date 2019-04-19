@@ -2,6 +2,10 @@
 <?php $title="Job Details"; ?>
 @extends('include.header')
 @section('content') 
+
+   <div class="as-mainwrapper">
+            <!--Bg White Start-->
+            <div class="bg-white">
  <!--Breadcrumb Banner Area Start-->
                 <div class="breadcrumb-banner-area pt-94 pb-85 bg-3 bg-opacity-dark-blue-90">
                     <div class="container">
@@ -73,5 +77,8 @@
                     </div>
                 </div>
                 <!--End of Single Job Post Area-->
+            </div>
+        </div>
+        
 
 @stop

@@ -27,7 +27,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
-                                <form action="#" enctype="multipart/form-data" method="Post">
+                                <form action="/User-Registration" enctype="multipart/form-data" method="Post">
                                 	@csrf
                                     <div class="single-job-content">
                                         <div class="title uppercase pt-50 pb-38"><span class="lg">Profile</span></div>
@@ -255,13 +255,13 @@
                                             <div class="single-info mb-14">
                                                 <label for="date_to" class="uppercase pull-left m-0">password <span>*</span></label>
                                                 <div class="form-box fix">
-                                                    <input type="text" id="date_to" name="password" placeholder="Please enter password" required>
+                                                    <input type="password" id="date_to" name="password" placeholder="Please enter password" required>
                                                 </div>
                                             </div>
                                              <div class="single-info mb-14">
                                                 <label for="date_to" class="uppercase pull-left m-0">retype password<span>*</span></label>
                                                 <div class="form-box fix">
-                                                    <input type="text" id="date_to" name="conPassword" placeholder="Please retype password" required="">
+                                                    <input type="password" id="date_to" name="conPassword" placeholder="Please retype password" required="">
                                                 </div>
                                             </div>
                                             <div class="ml-160 mt-42">
