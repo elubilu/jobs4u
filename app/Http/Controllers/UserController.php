@@ -39,18 +39,26 @@ class UserController extends Controller
         $time = strtotime($date);
         $data['dob'] = date('Y-m-d',$time);
         if($pass==$data['password']){
-	     	if(UserModel::store_user($data))
-	     	{
-	     		// $data['password']=md5($pass);
-		        $success = $image->move($upload_path, $profileImageSaveAsName);
-		        \Session::flash('message', 'You are successfully Signup. Please check your email to verify.');  
-	        	\Session::flash('alert-type', 'success');
-	     		return redirect("/");
-	     	}
-	     	else 
-	     	{
-	     		return redirect("/Signup");
-	     	}
+        	if(UserController::get_user_valid($data['userName']))
+        	{
+        		\Session::flash('message', "Already have an account with this User Name");  
+	        	\Session::flash('alert-type', 'error');
+	        	return redirect("/Signup");
+        	}
+        	else{
+		     	if(UserModel::store_user($data))
+		     	{
+		     		// $data['password']=md5($pass);
+			        $success = $image->move($upload_path, $profileImageSaveAsName);
+			        \Session::flash('message', 'You are successfully Signup. Please check your email to verify.');  
+		        	\Session::flash('alert-type', 'success');
+		     		return redirect("/");
+		     	}
+		     	else 
+		     	{
+		     		return redirect("/Signup");
+		     	}
+		     }
 	     }
 	     else{
 			\Session::flash('message', "Password didn't match!");  
@@ -86,20 +94,166 @@ class UserController extends Controller
     {
     	if(session()->get('userName')){
 	    	$details=UserModel::get_details_by_userName(session()->get('userName'));
-	    	session()->put('fullName', $data['fullName']);
+	    	$education=UserModel::get_education_by_userName(session()->get('userName'));
+	    	$experience=UserModel::get_experience_by_userName(session()->get('userName'));
+	    	// session()->put('fullName', $details->fullName);
 	    	// print_r($details); exit();
-	    	return view('user.home',['details'=>$details]);
+	    	return view('user.home',['details'=>$details,'education'=>$education,'experience'=>$experience]);
 	    }
 	    else redirect("/");
     }
+     public function addExperience()
+    {
+    	if(session()->get('userName')){
+    		$experience=UserModel::get_experience_by_userName(session()->get('userName'));
+	    	return view('user.addExperience',['experiences'=>$experience]);
+	    }
+	    else redirect("/");
+    }
+    public function deleteExperience($id)
+    {
+    	if(session()->get('userName')){
+    		if(UserModel::delete_experience($id)){
+
+	        \Session::flash('message', 'You are successfully Deleted Experience.');  
+	        \Session::flash('alert-type', 'success');  
+	        // session()->put('userName', $data['userName']);
+	    	return redirect("/Experience");
+	    	}
+	    	
+	    	else 
+	    	{
+	    		\Session::flash('message', 'Sorry! You are can not Delete Experience.');  
+	        	\Session::flash('alert-type', 'error');  
+	    		return redirect("/Experience");
+	    	}
+
+	    }
+	    else 
+	    	{
+	    		\Session::flash('message', 'Sorry! You are can not Delete Experience.');  
+	        	\Session::flash('alert-type', 'error');  
+	    		return redirect("/Experience");
+	    	}
+    }
     public function profile()
     {
-    	$details=UserModel::get_details_by_userName(session()->get('userName'));
-    	return view('user.profile',['details'=>$details]);
+    	if(session()->get('userName')){
+
+	    	$details=UserModel::get_details_by_userName(session()->get('userName'));
+	    	return view('user.profile',['details'=>$details]);
+	    }
+	    else return redirect("/");
+
     }
      public function addEducation()
     {
-    	return view('user.addEducation');
+    	if(session()->get('userName')){
+	    	$education=UserModel::get_education_by_userName(session()->get('userName'));
+	    	return view('user.addEducation',['educations'=>$education]);
+	    }
+	    else return  redirect("/");
+
+    }
+    public function editEducation($id)
+    {
+    	if(session()->get('userName')){
+	    	$education=UserModel::get_education_by_id($id);
+	    	// print_r($education); exit();
+	    	return view('user.editEducation',['education'=>$education]);
+	    }
+	    else return redirect("/");
+
+    }
+     public function storeExperience(Request $request){
+
+		$data['designation'] = $request->input('designation');
+		$data['companyName'] = $request->input('companyName');
+		$data['jobStatus'] = $request->input('jobStatus');
+		$data['description'] = $request->input('description');
+		$data['userName'] = $request->input('userName');
+
+		
+
+		$syear = $request->input('startDay');
+		$smonth = $request->input('startMonth');
+		$sday = $request->input('startYear');
+		$eyear = $request->input('endDay');
+		$emonth = $request->input('startMonth');
+		$eday = $request->input('endYear');
+
+
+        $sdate=$syear.'-'.$smonth.'-'.$sday;
+        $stime = strtotime($sdate);
+        $data['jobStart'] = date('Y-m-d',$stime);
+
+        $edate=$eyear.'-'.$emonth.'-'.$eday;
+        $etime = strtotime($edate);
+        $data['jobEnd'] = date('Y-m-d',$etime);
+
+     	if(UserModel::store_experience($data))
+     	{
+	        \Session::flash('message', 'You are successfully added your Experience.');  
+        	\Session::flash('alert-type', 'success');
+     		return redirect("/Experience");
+     	}
+     	else 
+     	{
+     		\Session::flash('message', "Can't add Experience,Try again later.");  
+	        \Session::flash('alert-type', 'error');
+     		return redirect("/Experience");
+     	}
+		   
+    }
+     public function storeEducation(Request $request){
+
+		$data['degreeName'] = $request->input('degreeName');
+		$data['degreeTitle'] = $request->input('degreeTitle');
+		$data['major'] = $request->input('major');
+		$data['institution'] = $request->input('institution');
+		$data['result'] = $request->input('result');
+		$data['grading'] = $request->input('grading');
+		$data['passingYear'] = $request->input('passingYear');
+		$data['userName'] = $request->input('userName');
+		
+     	if(UserModel::store_education($data))
+     	{
+	        \Session::flash('message', 'You are successfully added your Education.');  
+        	\Session::flash('alert-type', 'success');
+     		return redirect("/Education");
+     	}
+     	else 
+     	{
+     		\Session::flash('message', "Can't add Education,Try again later.");  
+	        \Session::flash('alert-type', 'error');
+     		return redirect("/Education");
+     	}
+		   
+    }
+    public function updateEducation(Request $request){
+
+		$data['degreeName'] = $request->input('degreeName');
+		$data['degreeTitle'] = $request->input('degreeTitle');
+		$data['major'] = $request->input('major');
+		$data['institution'] = $request->input('institution');
+		$data['result'] = $request->input('result');
+		$data['grading'] = $request->input('grading');
+		$data['passingYear'] = $request->input('passingYear');
+		$data['userName'] = $request->input('userName');
+		
+     	if(UserModel::update_education($data))
+     	{
+	        \Session::flash('message', 'You are successfully added your Education.');  
+        	\Session::flash('alert-type', 'success');
+     		return redirect("/Education");
+     	}
+     	else 
+     	{
+     		\Session::flash('message', "Can't add Education,Try again later.");  
+	        \Session::flash('alert-type', 'error');
+     		return redirect("/Education");
+     	}
+		   
     }
 
 

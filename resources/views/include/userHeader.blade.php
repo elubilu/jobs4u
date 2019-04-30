@@ -87,12 +87,12 @@
           </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/Education">
           <i class="fa fa-graduation-cap" aria-hidden="true"></i>
           <span>Add Education</span></a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/Experience">
           <i class="fa fa-briefcase" aria-hidden="true"></i>
           <span>Add Experience</span></a>
       </li>

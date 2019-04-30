@@ -15,6 +15,7 @@
 					<div  class="form-group">
 						<label>Degree Name<span style="color: red;">*</span></label>
 						<select name="degreeName"  class="form-control" required>
+							<option value="{{$education->degreeName}}">{{$education->degreeName}}</option>
 							<option value="A Level">A Level </option>
 							<option value="O Level">O level</option>
 							<option value="Master's">Master's</option>
@@ -29,7 +30,7 @@
 				<div class="col-md-6">
 					<div  class="form-group">
 						<label>Degree Title<span style="color: red;">*</span></label>
-						<input type="text" name="degreeTitle" required  class="form-control">
+						<input type="text" name="degreeTitle" required value="{{$education->degreeTitle}}"  class="form-control">
 					</div>
 				</div>
 			</div>
@@ -37,18 +38,18 @@
 			<div class="row p-3">
 				<div class="col-md-6">
 					<label>Major<span style="color: red;">*</span></label>
-					<input type="text" name="major" required class="form-control">
+					<input type="text" name="major" value="{{$education->major}}" required class="form-control">
 				</div>
 				<div class="col-md-6">
 					<label>Institution<span style="color: red;">*</span></label>
-					<input type="text" name="institution" required class="form-control">
+					<input type="text" name="institution" value="{{$education->institution}}" required class="form-control">
 				</div>
 			</div>
 			
 			<div class="row p-3">
 				<div class="col-md-4">
 					<label>GPA/CGPA<span style="color: red;">*</span></label>
-					<input type="text" name="result" required class="form-control">
+					<input type="text" name="result" value="{{$education->result}}" required class="form-control">
 				</div>
 				<div class="col-md-4">
 					<label>Grading<span style="color: red;">*</span></label>
@@ -90,52 +91,13 @@
 					</select>
 				</div>
 			</div>
-			<input type="hidden" name="userName" class="form-control" value="<?php echo session()->get('userName'); ?>">
+			<input type="hidden" name="id" class="form-control" value="<?php echo $education->id ?>">
 			<div class="row p-3">
 				<div class="col text-center">
-					<button type="submit" class="btn btn-secondary mt-5 col-md-2">Submit</button>
+					<button type="submit" class="btn btn-secondary mt-5 col-md-2">Update</button>
 				</div>
 			</div>
 
 		</form>
 	</div>
-	<br><br>
-		<div class="card mb-3 m-3">
-        <div class="card-header text-center" style="background: grey; border: 5px; padding: 15px; color: white;">
-            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-            Education</div>
-          <div class="card-body" style="border-style: solid; border-width: 5px;  border-color:grey;">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Degree Name</th>
-                    <th>Major</th>
-                    <th>Institution</th>
-                    <th>CGPA/GPA</th>
-                    <th>Passed Year</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                  </tr>
-                </thead>
-                <tbody>
-                	<?php foreach($educations as $education) { ?>
-                  <tr>
-                    <td>{{$education->degreeName}}</td>
-                    <td>{{$education->major}}</td>
-                    <td>{{$education->institution}}</td>
-                    <td>{{$education->result}} ({{$education->grading}})</td>
-                    <td>{{$education->passingYear}}</td>
-                    <td><a href="/editEducation/{{$education->id}}" class="btn btn-primary">Edit</a></td>
-                    <td><a href="/deleteEducation/{{$education->id}}" class="btn btn-danger">Delete</a></td>
-                  </tr>
-              <?php } ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-<br><br>
-	
 @stop

@@ -105,62 +105,62 @@
 				
 			</div>
 		</div>
-		<div class="row">
+		<?php if(sizeof($experience)>0){ ?>
+		<div class="row ">
 			<div class="col-md-12">
-				<label for="inputEmail3" class="col-md-12" style="border-bottom: 1px solid black;font-size: 16px;text-align:left; font-weight: bold;">WORK EXPERIENCE</label>
+				<label for="inputEmail3" class="col-md-12" style="border-bottom: 1px solid black;font-size: 16px;text-align:left; font-weight: bold;">Experience</label>
 			</div>
 		</div>
+		<?php foreach ($experience as $job) {
+		?>
 		<div class="row">
 			<div class="col-md-3">
-				<h6 style="font-size: 16px;">February 2019 - Still Continuing <span > :</span></h6>
+				<h6 style="font-size: 16px;"><?php $date=date_create($job->jobStart);
+					echo date_format($date,"M")." ".date_format($date,"Y")." -" ;
+					if($job->jobStatus=="End") 
+						{
+							$date=date_create($job->jobEnd);
+					echo date_format($date,"M")." ".date_format($date,"Y")." " ;
+						}
+					else {
+						echo  $job->jobStatus;
+					} ?><span > :</span></h6>
 			</div>
 			<div class="col-sm-9" style="margin-bottom: 16px;">
-				<p style="font-size: 18px;font-weight: 500;">  Staff Asia</p>
-				<p style="font-size: 14px;font-weight: 600;text-indent: 10px;"><em>Software Developer</em></p>
-				<p  style="font-size: 14px;font-weight: 400;margin-left: 10px;text-align:left;">Work collaboratively with clients and in-house agency teams to provide rapid, robust and clientacclaimed front- and back-end web development optimizing user experience, search engine ranking,sales, brand positioning and related metrics. </p>
+				<p style="font-size: 18px;font-weight: 500;"> {{$job->companyName}}</p>
+				<p style="font-size: 14px;font-weight: 600;text-indent: 10px;"><em>{{$job->designation}}</em></p>
+				<p  style="font-size: 14px;font-weight: 400;margin-left: 10px;text-align:left;">{{$job->description}} </p>
 			</div>
 			
 		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<h6 style="font-size: 16px;">May 2017 - July 2018 <span > :</span></h6>
-			</div>
-			<div class="col-md-9" style="margin-bottom: 16px;">
-				<p style="font-size: 18px;font-weight: 500;">  StarLab IT</p>
-				<p style="font-size: 14px;font-weight: 600;text-indent: 10px;"><em>Intern</em></p>
-				<p  style="font-size: 14px;font-weight: 400;margin-left: 10px;text-align:left;">Work collaboratively with clients and in-house agency teams to provide rapid, robust and clientacclaimed front- and back-end web development optimizing user experience, search engine ranking,sales, brand positioning and related metrics. </p>
-			</div>
-		</div>
+	<?php } } ?>
+		<?php if(sizeof($education)>0){ ?>
 		<div class="row">
 			<div class="col-md-12">
 				<label for="inputEmail3" class="col-md-12" style="border-bottom: 1px solid black;font-size: 16px;text-align:left; font-weight: bold;">Education</label>
 			</div>
 		</div>
+		<?php foreach ($education as $edu) {
+		?>
 		<div class="row">
 			<div class="col-md-3">
-				<h6 style="font-size: 16px;">Jan 2015 - Dec 2018 <span > :</span></h6>
+				<h6 style="font-size: 16px;">{{$edu->passingYear}} <span > :</span></h6>
 			</div>
 			<div class="col-md-9" style="margin-bottom: 16px;">
-				<p style="font-size: 16px;font-weight: 600;">BSc</p>
-				<p style="font-size: 14px;font-weight: 400;text-indent: 10px;">Leading University,Sylhet.</p>
-				<p style="font-size: 14px;font-weight: 600;text-indent: 10px;">3.50 out of 4 ( Computer Science & Engineering )</p>
+				<p style="font-size: 16px;font-weight: 600;">{{$edu->degreeName}} in {{$edu->major}} </p>
+				<p style="font-size: 14px;font-weight: 400;text-indent: 10px;">{{$edu->institution}}</p>
+				<p style="font-size: 14px;font-weight: 600;text-indent: 10px;"> {{$edu->result}} out of {{$edu->grading}}</p>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<h6 style="font-size: 16px;">Apr 2011 - Apr 2013 <span > :</span></h6>
-			</div>
-			<div class="col-md-9" style="margin-bottom: 16px;">
-				<p style="font-size: 16px;font-weight: 600;">HSC</p>
-				<p style="font-size: 14px;font-weight: 400;text-indent: 10px;">Westpoint College,Sylhet.</p>
-				<p style="font-size: 14px;font-weight: 600;text-indent: 10px;">3.50 out of 4 ( Science )</p>
-			</div>
-		</div>
+	<?php } ?>
  	</div>
+	<?php } ?>
+ 	
 	<div class="content-footer container">
 	    <button class="btn btn-primary" id="btn-export" onclick="exportHTML();">Export to word doc</button>
 	</div>
 	<br><br>
+
  	<script>
     function exportHTML(){
        var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' "+

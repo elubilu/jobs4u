@@ -26,6 +26,12 @@
 Route::get('/', 'JobsController@home');
 Route::get('/Profile', 'UserController@profile');
 Route::get('/Education', 'UserController@addEducation');
+Route::get('/editEducation/{id}', 'UserController@editEducation');
+Route::get('/deleteEducation/{id}', 'UserController@deleteEducation');
+Route::get('/deleteExperience/{id}', 'UserController@deleteExperience');
+Route::get('/Experience', 'UserController@addExperience');
+Route::post('/storeExperience', 'UserController@storeExperience');
+Route::post('/storeEducation', 'UserController@storeEducation');
 Route::get('/Home', 'UserController@home');
 Route::get('/All-Jobs', 'JobsController@allJobs');
 Route::get('/Post-Jobs', 'JobsController@jobPost');
